@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import "../styles/post.css"
 import {Avatar} from "@material-ui/core"
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
@@ -9,16 +9,17 @@ import PublishIcon from "@material-ui/icons/Publish";
 
 
 
-function post(  {displayName,
+const Post = forwardRef(({
+    displayName,
     username,
     verified,
     text,
     image,
-    avatar}) {
+    avatar},ref)=> {
   
 
     return (
-        <div className="post">
+        <div className="post" ref={ref}>
             <div className="post_avatar">
                 <Avatar src={avatar}/>
             </div>
@@ -27,7 +28,7 @@ function post(  {displayName,
                     <div className="post_header_text">
                         <h3>{displayName} { " "}
                          <span className="post_headerSpecial">
-                         {verified &&<VerifiedUserIcon className="post_badge" />} @{username}</span></h3>
+                         {verified &&<VerifiedUserIcon className="post_badge" />}@{username}</span></h3>
                     </div>
                     <div className="post_headerDesc">
                     <p>{text}</p>
@@ -40,11 +41,9 @@ function post(  {displayName,
             <FavoriteBorderIcon fonstSize="small" />
             <PublishIcon fonstSize="small" />
                 </div>
-               
-
             </div>
         </div>
-    )
-}
+    );
+});
 
-export default post
+export default Post;
