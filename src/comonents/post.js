@@ -8,6 +8,7 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import PublishIcon from "@material-ui/icons/Publish";
 
 
+
 function post(  {displayName,
     username,
     verified,
@@ -19,19 +20,20 @@ function post(  {displayName,
     return (
         <div className="post">
             <div className="post_avatar">
-                <Avatar src="https://pbs.twimg.com/profile_images/1412068853656346625/GnSAUqIc_400x400.jpg"/>
+                <Avatar src={avatar}/>
             </div>
             <div className="post_body">
                 <div className="post_header">
                     <div className="post_header_text">
-                        <h3>Abhishek Chauhan { " "}
-                         <span className="post_headerSpecial"><VerifiedUserIcon className="post_badge" /></span></h3>
+                        <h3>{displayName} { " "}
+                         <span className="post_headerSpecial">
+                         {verified &&<VerifiedUserIcon className="post_badge" />} @{username}</span></h3>
                     </div>
                     <div className="post_headerDesc">
-                    <p>I'm building twitter</p>
+                    <p>{text}</p>
                 </div>
             </div>
-            <img src="https://boomsumo.com/wp-content/uploads/2021/05/45-Best-You-Da-Best-Memes-Youre-The-Best-Meme-1.jpg" alt="meme"/>
+            <img src={image} alt="meme"/>
             <div className="post_footer">
             <ChatBubbleOutlineIcon fonstSize="small" />
             <RepeatIcon fonstSize="small" />
