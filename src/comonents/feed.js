@@ -2,6 +2,7 @@ import React from 'react';
 import "../styles/feed.css"
 import TweetBox from './tweetBox';
 import Post from './post';
+import Widgets from './widgets';
 
 
 
@@ -20,6 +21,16 @@ function feed() {
 
         {/* Post */}
         <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+        <Post/>
+
+
+        <Widgets/>
         
             
         </div>
