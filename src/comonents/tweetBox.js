@@ -11,7 +11,8 @@ function TweetBox() {
         e.preventDefault();
 
         db.collection("posts").add({
-            displayName: "abhi",
+            timeStamp: new Date().getTime(),
+            displayName:"abhi",
             username: "abhishek",
             verified : false,
             text: tweetMessage,
