@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "../styles/tweetBox.css";
 import { Avatar, Button } from "@material-ui/core";
-import db from "../firebase";
+import {db} from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase"; 
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
+  const [user] = useAuthState(auth);
   const sendTweet = (e) => {
     e.preventDefault();
 
@@ -26,7 +29,7 @@ function TweetBox() {
     <div className="tweetBox">
       <form>
         <div className="tweetBox_input">
-          <Avatar src="https://pbs.twimg.com/profile_images/1412068853656346625/GnSAUqIc_400x400.jpg" />
+          <Avatar src={user.photoURL} />
           <input
             onChange={(e) => setTweetMessage(e.target.value)}
             value={tweetMessage}

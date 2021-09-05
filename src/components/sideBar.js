@@ -11,11 +11,15 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Button } from "@material-ui/core";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
+
 
 function SideBar() {
+  const [user] = useAuthState(auth);
   return (
     <div className="sidebar">
-      <TwitterIcon className="sidebar_twitterIcon" />
+      <TwitterIcon className="sidebar_twitterIcon"  onClick={() => auth.signOut()}/>
       <SideBarOptions active Icon={HomeIcon} text="Home" />
       <SideBarOptions Icon={SearchIcon} text="Search" />
       <SideBarOptions
