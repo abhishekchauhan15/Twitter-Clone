@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/feed.css";
 import TweetBox from "./tweetBox";
 import Post from "./post";
-import db from "../firebase";
+import {db} from "../firebase";
 import FlipMove from "react-flip-move";
 
 function Feed() {
@@ -45,4 +45,4 @@ function Feed() {
 
 export default Feed;
 
-// rfce
+

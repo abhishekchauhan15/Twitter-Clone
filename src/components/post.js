@@ -6,22 +6,27 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import RepeatIcon from "@material-ui/icons/Repeat";
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ShareIcon from "@material-ui/icons/Share";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase";
 
 const Post = forwardRef(
   ({ displayName, username, verified, text, image, avatar }, ref) => {
+    const [user] = useAuthState(auth);
+    const   name = user.displayName.split(" ");
     return (
+      
       <div className="post" ref={ref}>
         <div className="post_avatar">
-          <Avatar src={avatar} />
+          <Avatar src="https://pbs.twimg.com/profile_images/1412068853656346625/GnSAUqIc_400x400.jpg" />
         </div>
         <div className="post_body">
           <div className="post_header">
             <div className="post_header_text">
               <h3>
-                {displayName}{" "}
+                {user.displayName}{" "}
                 <span className="post_headerSpecial">
                   {verified && <VerifiedUserIcon className="post_badge" />}@
-                  {username}
+                  {name[0]}
                 </span>
               </h3>
             </div>
